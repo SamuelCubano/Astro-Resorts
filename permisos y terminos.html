@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos y Condiciones - Astro Resorts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --amber: #FFBF00;
+      --amber-light: #FFF3CC;
+      --amber-dark: #CC9900;
+      --bronze: #CD7F32;
+      --bronze-light: #F5DEB3;
+      --bronze-dark: #8B4513;
+      --butter: #FFE5A0;
+      --butter-light: #FFF8DC;
+      --dewy-blue: #A8D5E2;
+      --dewy-blue-dark: #7FB3C9;
+      --black: #000000;
+      --charcoal: #1A1A1A;
+      --white: #FFFFFF;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--butter-light) 0%, var(--amber-light) 100%);
+      color: var(--black);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--bronze) 100%);
+      color: var(--black);
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: slideDown 0.8s ease-out;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: float 20s linear infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, var(--bronze-light) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+      color: var(--black);
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 15px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+      color: var(--bronze-dark);
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 3px;
+      background: var(--bronze);
+      margin: 20px auto;
+      position: relative;
+      z-index: 1;
+      animation: expandWidth 1s ease-out 0.4s backwards;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes expandWidth {
+      from { width: 0; }
+      to { width: 80px; }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      border-top: 5px solid var(--dewy-blue);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease-out 0.6s backwards;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      background: var(--amber);
+      color: var(--black);
+      border: 2px solid var(--amber);
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: var(--black);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn:hover {
+      color: var(--dewy-blue-dark);
+      border-color: var(--black);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .alert {
+      background: var(--white);
+      border-left: 5px solid var(--dewy-blue);
+      padding: 25px 30px;
+      border-radius: 8px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 20px var(--shadow);
+      animation: fadeInUp 0.8s ease-out 0.7s backwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alert::before {
+      content: '✦';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      color: var(--bronze);
+      opacity: 0.4;
+    }
+
+    .alert strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3em;
+      color: var(--bronze-dark);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      color: var(--black);
+      margin: 60px 0 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--dewy-blue);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--dewy-blue);
+      transition: width 0.4s ease;
+    }
+
+    .section-title:hover::after {
+      width: 100%;
+    }
+
+    .accordion {
+      background: var(--white);
+      border: 1px solid rgba(168, 213, 226, 0.4);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 15px var(--shadow);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .accordion:nth-child(1) { animation-delay: 0.1s; }
+    .accordion:nth-child(2) { animation-delay: 0.2s; }
+    .accordion:nth-child(3) { animation-delay: 0.3s; }
+    .accordion:nth-child(4) { animation-delay: 0.4s; }
+    .accordion:nth-child(5) { animation-delay: 0.5s; }
+
+    .accordion:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 30px rgba(168, 213, 226, 0.2);
+      border-color: var(--dewy-blue);
+    }
+
+    .accordion-header {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--bronze) 100%);
+      color: var(--black);
+      padding: 20px 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accordion-header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--dewy-blue);
+      transform: scaleY(0);
+      transition: transform 0.4s ease;
+    }
+
+    .accordion:hover .accordion-header::before {
+      transform: scaleY(1);
+    }
+
+    .accordion-header:hover {
+      padding-left: 35px;
+    }
+
+    .accordion-icon {
+      font-size: 1.3em;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+    }
+
+    .accordion-content {
+      padding: 0 25px;
+      background: var(--butter-light);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    }
+
+    .accordion-content.active {
+      max-height: 1000px;
+      padding: 25px;
+      background: var(--amber-light);
+    }
+
+    .accordion-content p,
+    .accordion-content li {
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .accordion-content ul {
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .accordion-content li {
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .accordion-content li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--dewy-blue);
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion:hover .accordion-content li::before {
+      transform: translateX(5px);
+    }
+
+    .box {
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 18px 0;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .box-highlight {
+      background: linear-gradient(135deg, var(--butter-light) 0%, var(--bronze-light) 100%);
+      border-left: 4px solid var(--amber);
+    }
+
+    .box-warning {
+      background: linear-gradient(135deg, var(--dewy-blue) 0%, var(--dewy-blue-dark) 100%);
+      border-left: 4px solid var(--bronze);
+    }
+
+    .box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px var(--shadow);
+    }
+
+    .box strong {
+      font-family: 'Playfair Display', serif;
+      color: var(--black);
+    }
+
+    .box-warning strong {
+      color: var(--bronze-dark);
+    }
+
+    p, li {
+      text-align: justify;
+    }
+
+    a {
+      color: var(--amber-dark);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--black);
+      transition: width 0.4s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--bronze-dark);
+      font-size: 0.9em;
+      border-top: 1px solid rgba(205, 127, 50, 0.3);
+      margin-top: 60px;
+      background: linear-gradient(135deg, var(--bronze-light) 0%, var(--butter-light) 100%);
+    }
+
+    .footer a {
+      color: var(--dewy-blue-dark);
+      margin: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5em; }
+      .section-title { font-size: 1.8em; }
+      .toolbar { flex-direction: column; align-items: center; }
+      .container { padding: 40px 20px; }
+      .accordion-header { font-size: 0.95em; padding: 15px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Astro Resorts</h1>
+    <p>Términos y Condiciones</p>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="container">
+    <div class="toolbar">
+      <button class="btn" onclick="window.print()"><span>Imprimir</span></button>
+      <button class="btn" onclick="toggleAll()"><span>Expandir / Contraer</span></button>
+    </div>
+
+    <div class="alert">
+      <strong>Bienvenido a Astro Resorts</strong>
+      Lea detenidamente estos términos antes de confirmar su reserva. Al hacerlo, acepta todas las políticas aquí descritas.
+    </div>
+
+    <h2 class="section-title">01. Aceptación</h2>
+    <p>Al acceder y utilizar los servicios de <strong>Astro Resorts</strong>, usted acepta cumplir con los presentes términos y condiciones. Si no está de acuerdo con alguna parte de estos términos, no deberá utilizar nuestros servicios.</p>
+
+    <h2 class="section-title">02. Permisos y Autorizaciones</h2>
+    <p>Al registrarse, el huésped autoriza a Astro Resorts a:</p>
+    <ul>
+      <li>Utilizar sus datos personales exclusivamente para gestión de reservas y facturación.</li>
+      <li>Cargar en la tarjeta de crédito proporcionada los servicios contratados durante su estancia.</li>
+      <li>Registrar su entrada según normativa policial vigente.</li>
+      <li>Utilizar imágenes del huésped en material promocional, siempre que cuente con consentimiento previo por escrito.</li>
+    </ul>
+
+    <h2 class="section-title">03. Servicios</h2>
+    <p>Astro Resorts ofrece servicios de alojamiento turístico, incluyendo habitaciones, suites, áreas comunes y servicios adicionales:</p>
+    <ul>
+      <li>Restauración y servicio de habitaciones</li>
+      <li>Acceso a instalaciones recreativas</li>
+      <li>Servicios de spa y bienestar</li>
+      <li>Eventos y reservas especiales</li>
+    </ul>
+
+    <h2 class="section-title">04. Reservas, Pagos y Garantías</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>📋 Política de Reservas</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Las reservas están sujetas a disponibilidad. Para garantizarla, se requiere:</p>
+        <ul>
+          <li>Tarjeta de crédito válida o depósito del 50% del total.</li>
+          <li>Datos de contacto válidos (teléfono y correo).</li>
+          <li>Número de huéspedes confirmado.</li>
+        </ul>
+        <p><strong>Nota:</strong> La reserva no se considera confirmada hasta recibir el pago de garantía correspondiente.</p>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>💳 Formas de Pago y Garantías</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Astro Resorts acepta las siguientes formas de pago:</p>
+        <ul>
+          <li>Tarjetas de crédito: Visa, MasterCard, American Express</li>
+          <li>Tarjetas de débito</li>
+          <li>Transferencia bancaria (solo para reservas con más de 7 días de antelación)</li>
+          <li>Efectivo en el establecimiento</li>
+        </ul>
+        <div class="box box-warning">
+          <strong>Importante:</strong> En caso de no presentación sin previo aviso, se cargará el importe de la primera noche en la tarjeta de garantía.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">05. Cancelaciones y Modificaciones</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🔄 Cancelaciones y Reembolsos</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Más de 14 días antes:</strong> Reembolso completo menos gastos de gestión (10%).</li>
+          <li><strong>Entre 7 y 14 días antes:</strong> Reembolso del 50% del importe total.</li>
+          <li><strong>Entre 48 horas y 7 días antes:</strong> Reembolso del 25% del importe total.</li>
+          <li><strong>Menos de 48 horas:</strong> No se realiza reembolso. Se cargará la primera noche.</li>
+          <li><strong>No presentación (no-show):</strong> Se cargará el importe total de la primera noche.</li>
+        </ul>
+        <p>Las modificaciones están sujetas a disponibilidad y pueden implicar cambios en el precio.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">06. Horarios</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🕐 Check-in y Check-out</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Check-in (entrada):</strong> A partir de las 15:00 horas (3:00 PM).</li>
+          <li><strong>Check-out (salida):</strong> Antes de las 11:00 horas (11:00 AM).</li>
+        </ul>
+        <div class="box box-warning">
+          <strong>Llegada anticipada:</strong> Sujeta a disponibilidad. Puede aplicarse un cargo adicional del 50% de la noche.
+        </div>
+        <div class="box box-highlight">
+          <strong>Salida tardía:</strong> Sujeta a disponibilidad con cargo del 50%. Sin excepción, deberá abandonar la habitación antes de las 13:00 horas sin cargo adicional.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">07. Convivencia y Conducta</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🚭 Prohibición de Fumar</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Queda estrictamente prohibido fumar en interiores, habitaciones y zonas comunes. Se permiten zonas designadas en el exterior.</p>
+        <div class="box box-warning">
+          <strong>Sanción:</strong> Penalización de hasta <strong>250 EUR</strong> por limpieza profunda y desodorización, además de cargos por daños si se produjeran.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🔇 Ruido y Tranquilidad</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Normas para garantizar el descanso:</p>
+        <ul>
+          <li>Horario de silencio: 22:00 a 08:00 horas.</li>
+          <li>Prohibidas reuniones o fiestas que generen ruido excesivo.</li>
+          <li>Volumen moderado de televisión, música o dispositivos.</li>
+          <li>Pasillos y zonas comunes en silencio.</li>
+        </ul>
+        <div class="box box-warning">
+          <strong>Sanción:</strong> Violación reiterada puede implicar solicitud de abandono sin derecho a reembolso.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🍕 Alimentos y Bebidas Externas</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Se permiten en habitaciones. Sin embargo:</p>
+        <ul>
+          <li>No está permitido consumirlos en zonas comunes.</li>
+          <li>Prohibida la introducción de alimentos perecederos.</li>
+          <li>El hotel no se responsabiliza de intoxicaciones o alergias derivadas de alimentos externos.</li>
+          <li>Servicio de habitaciones disponible 24 horas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🐾 Política de Mascotas</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Astro Resorts admite mascotas bajo condiciones específicas:</p>
+        <ul>
+          <li>Se admiten perros y gatos de tamaño pequeño y mediano.</li>
+          <li>Peso máximo: 25 kg por mascota.</li>
+          <li>Notificación previa en la reserva. Puede aplicarse cargo adicional por noche.</li>
+          <li>Las mascotas deben permanecer acompañadas en todo momento.</li>
+          <li>El huésped es responsable de daños, suciedad o molestias.</li>
+          <li>Prohibido el acceso a zonas de restauración, piscinas y zonas comunes señalizadas.</li>
+        </ul>
+        <div class="box box-highlight">
+          <strong>Aceptación expresa:</strong> Al reservar con mascota, el huésped acepta la responsabilidad civil por cualquier daño o perjuicio causado por su animal.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>👶 Menores de Edad</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Los menores pueden alojarse bajo supervisión y responsabilidad de un adulto:</p>
+        <ul>
+          <li>Menores de 18 años deben estar acompañados por un adulto mayor de 18 años en todo momento.</li>
+          <li>Menores de 12 años pueden compartir habitación con sus padres sin cargo adicional, usando la cama existente o supletoria autorizada.</li>
+          <li>Se requiere autorización notarial o escrita si un menor viaja sin sus padres.</li>
+          <li>El hotel no se hace responsable de menores sin supervisión.</li>
+          <li>Los padres o tutores son responsables de cualquier daño causado por los menores.</li>
+        </ul>
+        <div class="box box-warning">
+          <strong>Advertencia:</strong> El hotel se reserva el derecho de negar el acceso a menores no acompañados o sin documentación exigida.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">08. Responsabilidad y Limitaciones</h2>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>💎 Objetos de Valor</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Cada habitación dispone de caja fuerte individual. Se recomienda su uso.</p>
+        <div class="box box-warning">
+          <strong>Limitación:</strong> Astro Resorts no se hace responsable de pérdida, robo o deterioro de objetos de valor dejados fuera de la caja fuerte. La responsabilidad se limita al importe máximo establecido por la normativa hotelera vigente, salvo dolo o negligencia grave del establecimiento.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleSection(this)">
+        <span>🔨 Daños a las Instalaciones</span>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p>Los huéspedes son responsables de los daños ocasionados durante su estancia:</p>
+        <ul>
+          <li>Daños en habitaciones, baños y mobiliario.</li>
+          <li>Rotura o mal funcionamiento de equipos electrónicos.</li>
+          <li>Manchas o deterioro de ropa de cama, toallas o cortinas.</li>
+          <li>Daños en zonas comunes o instalaciones deportivas.</li>
+        </ul>
+        <div class="box box-highlight">
+          <strong>Cargo por daños:</strong> El importe correspondiente será cargado en la tarjeta de crédito del huésped. Si no se determina el autor, el cargo se realizará al huésped responsable de la habitación en el momento del incidente.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">09. Modificaciones</h2>
+    <p>Astro Resorts se reserva el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
+
+    <h2 class="section-title">10. Contacto</h2>
+    <p>Si tiene preguntas, contáctenos en:</p>
+    <p>
+      <strong>Correo electrónico:</strong> info@astroresorts.com<br>
+      <strong>Teléfono:</strong> +34 900 123 456<br>
+      <strong>Dirección:</strong> Calle del Sol, 42, 28001 Madrid, España
+    </p>
+
+    <p style="margin-top: 40px;"><a href="index.html">← Volver al inicio</a></p>
+  </div>
+
+  <div class="footer">
+    <p>© 2026 Astro Resorts. Todos los derechos reservados. | Diseñado con elegancia.</p>
+  </div>
+
+  <script>
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      content.classList.toggle('active');
+      const icon = header.querySelector('.accordion-icon');
+      icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    function toggleAll() {
+      const contents = document.querySelectorAll('.accordion-content');
+      const allActive = Array.from(contents).every(c => c.classList.contains('active'));
+      contents.forEach(content => {
+        content.classList.toggle('active', !allActive);
+      });
+      const icons = document.querySelectorAll('.accordion-icon');
+      icons.forEach(icon => {
+        icon.style.transform = allActive ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.accordion').forEach(accordion => {
+      observer.observe(accordion);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    });
+  </script>
+</body>
+</html>
