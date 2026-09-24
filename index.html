@@ -1,1 +1,249 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Resorts - Tu refugio de lujo entre las estrellas. Reserva tu experiencia hotelera única.">
+    <title>Astro Resorts — Lujo Intergaláctico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2=Playfair+Display:wght@400;700;900&Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">Astro Resorts</a>
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">Inicio</a></li>
+                    <li><a href="destinos.html" class="nav__link">Destinos</a></li>
+                    <li><a href="habitaciones.html" class="nav__link">Habitaciones</a></li>
+                    <li><a href="servicios.html" class="nav__link">Servicios</a></li>
+                    <li><a href="reservas.html" class="nav__link">Reservas</a></li>
+                    <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="nav__toggle" id="navToggle" aria-label="Menú de navegación">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="hero__subtitle">Lujo Intergaláctico</span>
+                    <h1 class="hero__title">Descubre el Encanto del Cosmos</h1>
+                    <p class="hero__description">
+                        En Astro Resorts transformamos tus viajes en experiencias cósmicas. 
+                        Desde cálidas playas hasta cumbres galácticas, encontrarás tu santuario de lujo.
+                    </p>
+                    <div class="hero__cta">
+                        <a href="reservas.html" class="btn btn--primary">Reserva tu Estancia</a>
+                        <a href="destinos.html" class="btn btn--secondary">Explora Destinos</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hero__scroll-down" aria-label="Desplazarse hacia abajo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16L6 10H18L12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </section>
+
+        <!-- Destinos -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__eyebrow">Destinos Premium</span>
+                    <h2 class="section__title">Destinos que Inspiran</h2>
+                    <p class="section__subtitle">
+                        Cada ubicación en Astro Resorts es una joya única, cuidadosamente seleccionada para ofrecer 
+                        una experiencia inolvidable bajo el cielo estrellado.
+                    </p>
+                </div>
+                <div class="destinos-grid">
+                    <article class="destino-card">
+                        <div class="destino-card__image" style="background-image: url('images/destino-1.jpg')"></div>
+                        <div class="destino-card__content">
+                            <h3 class="destino-card__title">Maldivas del Norte</h3>
+                            <p class="destino-card__text">Villa flotante privada con vistas a la aurora boreal.</p>
+                            <a href="destinos.html#maldivas" class="destino-card__link">Explorar</a>
+                        </div>
+                    </article>
+                    <article class="destino-card">
+                        <div class="destino-card__image" style="background-image: url('images/destino-2.jpg')"></div>
+                        <div class="destino-card__content">
+                            <h3 class="destino-card__title">Santuario Andino</h3>
+                            <p class="destino-card__text">Refugio de montaña con spa de tierras termales galácticas.</p>
+                            <a href="destinos.html#andino" class="destino-card__link">Explorar</a>
+                        </div>
+                    </article>
+                    <article class="destino-card">
+                        <div class="destino-card__image" style="background-image: url('images/destino-3.jpg')"></div>
+                        <div class="destino-card__content">
+                            <h3 class="destino-card__title">Oasis del Desierto</h3>
+                            <p class="destino-card__text">Palmeras de cristal y lagos de sal bajo el sol de medianoche.</p>
+                            <a href="destinos.html#desierto" class="destino-card__link">Explorar</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia -->
+        <section class="section section--dark">
+            <div class="container">
+                <div class="section__header section__header--center">
+                    <span class="section__eyebrow">La Experiencia Astro</span>
+                    <h2 class="section__title">Una Noche, Infinitas Posibilidades</h2>
+                    <p class="section__subtitle">
+                        Desde el momento en que pisas nuestras instalaciones, el universo se abre ante ti.
+                    </p>
+                </div>
+                <div class="experiencia-grid">
+                    <div class="experiencia-item">
+                        <div class="experiencia-item__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15 8H21L13 12L16 18L12 14L8 18L11 12L3 8H9L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="experiencia-item__title">Estrellas de Lujo</h3>
+                        <p class="experiencia-item__text">Suites con techos de cristal que se abren al cosmos.</p>
+                    </div>
+                    <div class="experiencia-item">
+                        <div class="experiencia-item__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM12 20C7.59 18.76 4.5 15.22 4.5 10.5C4.5 6.91 7.17 3.5 11 3.5C14.83 3.5 17.5 6.91 17.5 10.5C17.5 15.22 14.41 18.76 12 20Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="experiencia-item__title">Observatorio Premium</h3>
+                        <p class="experiencia-item__text">Telescopios profesionales con guía de astrónomos galácticos.</p>
+                    </div>
+                    <div class="experiencia-item">
+                        <div class="experiencia-item__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15a2 2 0 0 1-2 2H7a2 2 0 0 1 0-4h14a2 2 0 0 1 2 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 9a2 2 0 0 1-2 2H7a2 2 0 0 1 0-4h14a2 2 0 0 1 2 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="experiencia-item__title">Cocina Estelar</h3>
+                        <p class="experiencia-item__text">Menús creados por chefs con ingredientes de múltiples mundos.</p>
+                    </div>
+                    <div class="experiencia-item">
+                        <div class="experiencia-item__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16t-2-2V6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V8a2 2 0 0 1 2-2v6a2 2 0 0 0 2 2h2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 16V9a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="experiencia-item__title">Wellness Cósmico</h3>
+                        <p class="experiencia-item__text">Spas con terapias de energía estelar y vibraciones galácticas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="section section--light">
+            <div class="container">
+                <div class="section__header section__header--center">
+                    <span class="section__eyebrow">Testimonios</span>
+                    <h2 class="section__title">Lo que Dicen Nuestros Viajeros</h2>
+                </div>
+                <div class="testimonios-slider" id="testimoniosSlider">
+                    <div class="testimonio">
+                        <div class="testimonio__content">
+                            <p class="testimonio__text">
+                                "Una experiencia que trasciende la tierra. Dormir bajo el cosmos fue mágico, 
+                                y el servicio impecable superó todas mis expectativas."
+                            </p>
+                        </div>
+                        <div class="testimonio__author">
+                            <div class="testimonio__avatar">M</div>
+                            <div class="testimonio__info">
+                                <span class="testimonio__name">María Elena R.</span>
+                                <span class="testimonio__role">Viajera Frecuente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonios-dots" id="testimoniosDots">
+                    <button class="dot dot--active" data-dot="0"></button>
+                    <button class="dot" data-dot="1"></button>
+                    <button class="dot" data-dot="2"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section section--dark section--newsletter">
+            <div class="container">
+                <div class="newsletter__content">
+                    <h2 class="newsletter__title">Únete al Cosmos Club</h2>
+                    <p class="newsletter__text">
+                        Suscríbete y recibe ofertas exclusivas, guías de viaje y acceso anticipado a nuevos destinos.
+                    </p>
+                    <form class="newsletter__form" id="newsletterForm">
+                        <input type="email" placeholder="Tu correo electrónico" class="newsletter__input" required>
+                        <button type="submit" class="btn btn--primary btn--sm">Suscribirme</button>
+                    </form>
+                    <p class="newsletter__legal">Sin compromiso. Cancela cuando quieras.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <a href="index.html" class="logo">Astro Resorts</a>
+                <p class="footer__tagline">Donde el lujo se encuentra con el cosmos.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__title">Destinos</h4>
+                    <ul class="footer__list">
+                        <li><a href="destinos.html">Maldivas del Norte</a></li>
+                        <li><a href="destinos.html">Santuario Andino</a></li>
+                        <li><a href="destinos.html">Oasis del Desierto</a></li>
+                        <li><a href="destinos.html">Archipiélago Helado</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Compañía</h4>
+                    <ul class="footer__list">
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="prensa.html">Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Contacto</h4>
+                    <ul class="footer__list">
+                        <li><span class="footer__contact">reservas@astroresorts.com</span></li>
+                        <li><span class="footer__contact">+1 (555) 0210-ASTRO</span></li>
+                        <li><span class="footer__contact">Carretera Estelar 127</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p class="footer__copyright">
+                    &copy; 2026 Astro Resorts. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
