@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Reservaciones - Astro Resorts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .reservations-list {
+            margin-top: 30px;
+        }
+        .reservation-item {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <h1>Reservaciones del Hotel</h1>
+        
+        <form id='reservationForm'>
+            <div class='form-group'>
+                <label for='name'>Nombre completo:</label>
+                <input type='text' id='name' name='name' required>
+            </div>
+            
+            <div class='form-group'>
+                <label for='email'>Correo electronico:</label>
+                <input type='email' id='email' name='email' required>
+            </div>
+            
+            <div class='form-group'>
+                <label for='phone'>Telefono:</label>
+                <input type='tel' id='phone' name='phone'>
+            </div>
+            
+            <div class='form-group'>
+                <label for='checkin'>Fecha de entrada:</label>
+                <input type='date' id='checkin' name='checkin' required>
+            </div>
+            
+            <div class='form-group'>
+                <label for='checkout'>Fecha de salida:</label>
+                <input type='date' id='checkout' name='checkout' required>
+            </div>
+            
+            <div class='form-group'>
+                <label for='roomType'>Tipo de habitacion:</label>
+                <select id='roomType' name='roomType' required>
+                    <option value=''>Seleccione un tipo</option>
+                    <option value='standard'>Estandar</option>
+                    <option value='deluxe'>Deluxe</option>
+                    <option value='suite'>Suite</option>
+                    <option value='presidential'>Presidencial</option>
+                </select>
+            </div>
+            
+            <div class='form-group'>
+                <label for='guests'>Numero de huespedes:</label>
+                <input type='number' id='guests' name='guests' min='1' max='10' value='1'>
+            </div>
+            
+            <button type='submit'>Hacer Reservacion</button>
+        </form>
+        
+        <div class='reservations-list'>
+            <h2>Reservaciones Actuales</h2>
+            <p>No hay reservaciones registradas a�n.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const roomType = document.getElementById('roomType').value;
+            const guests = document.getElementById('guests').value;
+            
+            // Create reservation object
+            const reservation = {
+                name,
+                email,
+                phone,
+                checkin,
+                checkout,
+                roomType,
+                guests,
+                date: new Date().toLocaleString()
+            };
+            
+            // Get existing reservations from localStorage
+            let reservations = JSON.parse(localStorage.getItem('hotelReservations') || '[]');
+            
+            // Add new reservation
+            reservations.push(reservation);
+            
+            // Save back to localStorage
+            localStorage.setItem('hotelReservations', JSON.stringify(reservations));
+            
+            // Clear form
+            this.reset();
+            
+            // Update display
+            displayReservations();
+            
+            alert('Reservaci�n realizada con �xito!');
+        });
+        
+        function displayReservations() {
+            const reservationsList = document.querySelector('.reservations-list');
+            const reservations = JSON.parse(localStorage.getItem('hotelReservations') || '[]');
+            
+            if (reservations.length === 0) {
+                reservationsList.innerHTML = '<h2>Reservaciones Actuales</h2><p>No hay reservaciones registradas a�n.</p>';
+                return;
+            }
+            
+            let reservationsHTML = '<h2>Reservaciones Actuales</h2>';
+            reservations.forEach((res, index) => {
+                reservationsHTML += `
+                    <div class='reservation-item'>
+                        <h3>Reservaci�n #${index + 1}</h3>
+                        <p><strong>Nombre:</strong> ${res.name}</p>
+                        <p><strong>Email:</strong> ${res.email}</p>
+                        <p><strong>Tel�fono:</strong> ${res.phone || 'No proporcionado'}</p>
+                        <p><strong>Fecha de entrada:</strong> ${res.checkin}</p>
+                        <p><strong>Fecha de salida:</strong> ${res.checkout}</p>
+                        <p><strong>Tipo de habitaci�n:</strong> ${res.roomType}</p>
+                        <p><strong>N�mero de hu�spedes:</strong> ${res.guests}</p>
+                        <p><strong>Fecha de reserva:</strong> ${res.date}</p>
+                    </div>
+                `;
+            });
+            
+            reservationsList.innerHTML = reservationsHTML;
+        }
+        
+        // Display reservations on page load
+        displayReservations();
+    </script>
+</body>
+</html>
