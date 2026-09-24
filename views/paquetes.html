@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes Estelares - Astro Resort</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Paquetes Estelares</h1>
+            <p>Experiencias astronómicas de lujo diseñadas para los viajeros más exigentes</p>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="food">Gastronomía Mundial</button>
+        <button class="filter-btn" data-filter="events">Eventos Especiales</button>
+        <button class="filter-btn" data-filter="travel">Viajes & Tours</button>
+        <button class="filter-btn" data-filter="games">Gaming & eSports</button>
+        <button class="filter-btn" data-filter="observatory">Experiencias Espaciales</button>
+    </section>
+
+    <!-- Packages Grid -->
+    <section class="packages">
+        <div class="container">
+            <div class="packages-grid" id="packagesGrid">
+                <!-- Package Cards will be injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="packageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-star"></i>Título del Paquete</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be injected by JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btnReservar">Reservar Paquete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
